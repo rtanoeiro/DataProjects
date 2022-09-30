@@ -1,0 +1,10 @@
+name: AlienInvasion
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9.7
+  - pip=22.0.3
+  - pip:
+    - pandas==1.4.1
+    - pygame==2.1.2
