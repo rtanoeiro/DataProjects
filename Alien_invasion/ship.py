@@ -1,15 +1,19 @@
 import pygame
+from pathlib import Path
+
 
 class Ship():
     """Characteristics of the ship"""
 
     def __init__(self, game_settings, screen) -> None:
         """Initialize the ship and start it's position"""
+        
+        self.current_path = str(Path.cwd())
         self.screen = screen
         self.game_settings = game_settings
 
         # Load the ship image and get its rect.
-        self.image = pygame.image.load('Alien_invasion/images/ship.bmp')
+        self.image = pygame.image.load(self.current_path+'/images/ship.bmp')
         self.rect = self.image.get_rect()
         self.screen_rect = self.screen.get_rect()
 
