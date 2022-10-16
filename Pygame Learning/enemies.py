@@ -1,4 +1,5 @@
 import pygame
+import os
 
 class Snail():
     """This class represents the snail in the screen"""
@@ -6,6 +7,7 @@ class Snail():
     def __init__(self, environment, speed, screen) -> None:
         ## Getting environment
         self.environment = environment
+        self.current_path = os.getcwd()
 
         ## Getting screen to place player on it
         self.screen = screen
@@ -15,7 +17,7 @@ class Snail():
         self.speed = speed
 
         ## Setting snail surface and rectangle
-        self.snail_surface = pygame.image.load("Pygame Learning/graphics/snail/snail1.png").convert_alpha() # Surface
+        self.snail_surface = pygame.image.load(self.current_path + "/graphics/snail/snail1.png").convert_alpha() # Surface
         self.rect = self.snail_surface.get_rect() # Rectangle
 
         ## Setting initial position of snail
@@ -45,5 +47,6 @@ class Fly():
 
     def __init__(self, speed) -> None:
         self.speed = speed
-        self.surface = pygame.image.load("Pygame Learning/graphics/Fly/fly1.png").convert_alpha() # Surface
+        self.current_path = os.getcwd()
+        self.surface = pygame.image.load(self.current_path + "/graphics/Fly/fly1.png").convert_alpha() # Surface
         self.rect = self.surface.get_rect() # Rectangle

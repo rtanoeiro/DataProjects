@@ -1,4 +1,5 @@
 import pygame
+import os
 
 class Player():
     """This class represents the player"""
@@ -6,6 +7,7 @@ class Player():
     def __init__(self, environment,screen, xspeed, yspeed) -> None:
         ## Getting environment
         self.environment = environment
+        self.current_path = os.getcwd()
 
         ## Getting screen to place player on it
         self.screen = screen
@@ -15,7 +17,7 @@ class Player():
         self.yspeed = yspeed
 
         ## Setting player surface and rectangle
-        self.player_surface = pygame.image.load("Pygame Learning/graphics/Player/player_walk_1.png").convert_alpha()
+        self.player_surface = pygame.image.load(self.current_path + "/graphics/Player/player_walk_1.png").convert_alpha()
         self.rect = self.player_surface.get_rect() # Rectangles
 
         # Saving initial values

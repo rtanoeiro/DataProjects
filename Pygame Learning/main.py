@@ -17,7 +17,8 @@ clock = pygame.time.Clock()
 ## Setting classes of the game
 environment = Environment(screen=screen)
 player = Player(environment=environment, screen=screen, xspeed=3, yspeed=0) 
-snail = Snail(environment=environment, speed=5, screen=screen)
+snail = Snail(environment=environment, speed=2, screen=screen)
+fly = Fly(speed=5)
 
 # Main loop to run game
 while True:
