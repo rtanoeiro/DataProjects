@@ -1,7 +1,7 @@
 from sys import exit
 from Players.player import Player
 from Enemies.enemies import Snail, Fly
-from Environment.environment import Environment
+from DisplaySurface.environment import Environment
 import game_functions as gf
 import pygame
 
@@ -16,8 +16,8 @@ clock = pygame.time.Clock()
 
 ## Setting classes of the game
 environment = Environment(screen=screen)
-player = Player(environment=environment, screen=screen, xspeed=3, yspeed=0) 
-snail = Snail(environment=environment, speed=2, screen=screen)
+player = Player(screen=screen, xspeed=3, yspeed=0) 
+snail = Snail(screen=screen, speed=2)
 fly = Fly(speed=5)
 
 # Main loop to run game

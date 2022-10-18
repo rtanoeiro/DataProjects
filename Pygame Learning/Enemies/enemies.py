@@ -1,12 +1,13 @@
 import pygame
 import os
+from DisplaySurface.environment import Environment
 
 class Snail():
     """This class represents the snail in the screen"""
 
-    def __init__(self, environment, speed, screen) -> None:
+    def __init__(self, speed, screen: pygame.Surface) -> None:
         ## Getting environment
-        self.environment = environment
+        self.environment = Environment()
         self.current_path = os.getcwd()
 
         ## Getting screen to place player on it

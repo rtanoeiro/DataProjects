@@ -1,12 +1,13 @@
 import pygame
 import os
+from DisplaySurface.environment import Environment
 
 class Player():
     """This class represents the player"""
 
-    def __init__(self, environment: pygame.Surface,screen: pygame.Surface, xspeed, yspeed) -> None:
+    def __init__(self, screen: pygame.Surface, xspeed, yspeed) -> None:
         ## Getting environment
-        self.environment = environment
+        self.environment = Environment()
         self.current_path = os.getcwd()
 
         ## Getting screen to place player on it
