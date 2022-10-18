@@ -2,7 +2,7 @@ from sys import exit
 from Players.player import Player
 from Enemies.enemies import Snail, Fly
 from DisplaySurface.environment import Environment
-import game_functions as gf
+from Functions.gameFunctions import GameFunctions as gf
 import pygame
 
 pygame.init()
@@ -26,7 +26,7 @@ while True:
         if event.type== pygame.QUIT:
             pygame.quit()
             exit()
-    gf.check_events(player=player, snail=snail)
+    gf.check_events()
     gf.update_screen(player=player, environment=environment, enemies=snail)
     player.update()
     snail.update()

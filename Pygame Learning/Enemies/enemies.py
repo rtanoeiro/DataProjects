@@ -7,7 +7,7 @@ class Snail():
 
     def __init__(self, speed, screen: pygame.Surface) -> None:
         ## Getting environment
-        self.environment = Environment()
+        self.environment = Environment(screen)
         self.current_path = os.getcwd()
 
         ## Getting screen to place player on it
