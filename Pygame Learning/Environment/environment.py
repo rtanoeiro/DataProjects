@@ -2,9 +2,9 @@ import pygame
 import os
 
 class Environment():
-    """This class represents the player"""
+    """This class represents the Display Surface"""
 
-    def __init__(self, screen) -> None:        
+    def __init__(self, screen: pygame.Surface) -> None:        
         # Creating font for score
         self.current_path = os.getcwd()
         self.screen = screen

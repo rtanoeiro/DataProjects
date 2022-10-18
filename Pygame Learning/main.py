@@ -1,7 +1,7 @@
 from sys import exit
-from player import Player
-from enemies import Snail, Fly
-from environment import Environment
+from Players.player import Player
+from Enemies.enemies import Snail, Fly
+from Environment.environment import Environment
 import game_functions as gf
 import pygame
 

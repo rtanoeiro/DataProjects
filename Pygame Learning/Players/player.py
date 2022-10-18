@@ -4,7 +4,7 @@ import os
 class Player():
     """This class represents the player"""
 
-    def __init__(self, environment,screen, xspeed, yspeed) -> None:
+    def __init__(self, environment: pygame.Surface,screen: pygame.Surface, xspeed, yspeed) -> None:
         ## Getting environment
         self.environment = environment
         self.current_path = os.getcwd()
