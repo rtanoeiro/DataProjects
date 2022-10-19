@@ -21,7 +21,7 @@ class Snail():
         self.speed = gs.snail_xspeed
 
         ## Setting snail surface and rectangle
-        self.snail_surface = pygame.image.load(self.current_path + "/graphics/snail/snail1.png").convert_alpha() # Surface
+        self.snail_surface = pygame.image.load(self.current_path + "art/graphics/snail/snail1.png").convert_alpha() # Surface
         self.rect = self.snail_surface.get_rect() # Rectangle
 
         ## Setting initial position of snail
@@ -52,5 +52,5 @@ class Fly():
     def __init__(self, speed) -> None:
         self.speed = speed
         self.current_path = os.getcwd()
-        self.surface = pygame.image.load(self.current_path + "/graphics/Fly/fly1.png").convert_alpha() # Surface
+        self.surface = pygame.image.load(self.current_path + "art/graphics/Fly/fly1.png").convert_alpha() # Surface
         self.rect = self.surface.get_rect() # Rectangle

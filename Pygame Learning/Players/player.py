@@ -9,26 +9,26 @@ class Player():
     """This class represents the player"""
 
     def __init__(self) -> None:
-        ## Getting environment
+        # Getting environment
         self.environment = Environment()
         self.current_path = os.getcwd()
 
-        ## Getting screen to place player on it
+        # Getting screen to place player on it
         self.screen = gs.screen
         self.screen_rect = self.screen.get_rect()
-        ## Setting speed of player
+        # Setting speed of player
         self.xspeed = gs.player_xspeed
         self.yspeed = gs.player_yspeed
 
-        ## Setting player surface and rectangle
-        self.player_surface = pygame.image.load(self.current_path + "/graphics/Player/player_walk_1.png").convert_alpha()
+        # Setting player surface and rectangle
+        self.player_surface = pygame.image.load(self.current_path + "art/graphics/Player/player_walk_1.png").convert_alpha()
         self.rect = self.player_surface.get_rect() # Rectangles
 
         # Saving initial values
         self.initial_x = self.environment.sky_rect.left + self.player_surface.get_width()
         self.initial_y = self.environment.sky_surface.get_height()
 
-        ## Setting initial position of player
+        # Setting initial position of player
         self.rect.centerx =  self.initial_x
         self.rect.bottom = self.initial_y
 
@@ -38,7 +38,7 @@ class Player():
         self.yspeed += 1
         self.rect.y += self.yspeed
 
-        if self.rect.bottom >= self.initial_y: # moving the player up
+        if self.rect.bottom >= self.initial_y: # This will act like a floor
             self.rect.bottom = self.initial_y
             
     def blitme(self):

@@ -18,10 +18,10 @@ class Environment():
         #self.score_rect = self.score_surface.get_rect()
 
         # Creating surfaces (Sky and ground) and setting colors (There could be many surfaces of this instance)
-        self.sky_surface = pygame.image.load(self.current_path + "/graphics/sky.png").convert_alpha()
+        self.sky_surface = pygame.image.load(self.current_path + "art/graphics/sky.png").convert_alpha()
         self.sky_rect = self.sky_surface.get_rect()
 
-        self.ground_surface = pygame.image.load(self.current_path + "/graphics/ground.png").convert_alpha()
+        self.ground_surface = pygame.image.load(self.current_path + "art/graphics/ground.png").convert_alpha()
         self.ground_rect = self.ground_surface.get_rect()
 
     def blitme(self):

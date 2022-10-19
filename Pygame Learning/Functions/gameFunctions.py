@@ -19,7 +19,7 @@ def check_events():
             exit()
     
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_SPACE and player.rect.bottom==300:
                 player.yspeed=-20
 
         if player.rect.colliderect(snail):
@@ -30,7 +30,7 @@ def update_screen():
     """Update images on the screen and flip to the new screen."""
 
     environment.blitme()
-    player.blitme() ## Redraws the ship, on it's new position\
+    player.blitme() # Redraws the ship, on it's new position
     snail.blitme()
 
     player.update()
