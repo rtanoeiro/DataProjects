@@ -1,7 +1,7 @@
 import pygame
 import os
-from DisplaySurface.environment import Environment
-from Functions.settings import GameSettings
+from gameModules.environment import Environment
+from gameModules.settings import GameSettings
 
 gs = GameSettings()
 

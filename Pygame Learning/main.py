@@ -1,6 +1,6 @@
-from sys import exit
+from sys import exit, modules
 import pygame
-import Functions.gameFunctions as gf
+import gameModules.gameFunctions as gf
 
 pygame.init()
 

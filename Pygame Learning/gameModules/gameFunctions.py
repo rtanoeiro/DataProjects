@@ -1,8 +1,8 @@
 import pygame
-from Players.player import Player
-from Enemies.enemies import Snail, Fly
-from DisplaySurface.environment import Environment
-from Functions.settings import GameSettings
+from gameModules.player import Player
+from gameModules.enemies import Snail, Fly
+from gameModules.environment import Environment
+from gameModules.settings import GameSettings
 
 gs = GameSettings()
 snail = Snail()

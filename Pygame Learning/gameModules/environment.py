@@ -1,6 +1,6 @@
 import pygame
 import os
-from Functions.settings import GameSettings
+from gameModules.settings import GameSettings
 
 gs = GameSettings()
 
