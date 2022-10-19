@@ -1,18 +1,21 @@
 import pygame
 import os
+from Functions.settings import GameSettings
+
+gs = GameSettings()
 
 class Environment():
     """This class represents the Display Surface"""
 
-    def __init__(self, screen: pygame.Surface) -> None:        
+    def __init__(self):        
         # Creating font for score
         self.current_path = os.getcwd()
-        self.screen = screen
-        self.test_font = pygame.font.Font(self.current_path + "/font/Pixeltype.ttf", 50)
+        self.screen = gs.screen
+        #self.test_font = pygame.font.Font(self.current_path + "/font/Pixeltype.ttf", 50)
 
         self.score = 0
-        self.score_surface = self.test_font.render('Score ', False, 'Red')
-        self.score_rect = self.score_surface.get_rect()
+        #self.score_surface = self.test_font.render('Score ', False, 'Red')
+        #self.score_rect = self.score_surface.get_rect()
 
         # Creating surfaces (Sky and ground) and setting colors (There could be many surfaces of this instance)
         self.sky_surface = pygame.image.load(self.current_path + "/graphics/sky.png").convert_alpha()

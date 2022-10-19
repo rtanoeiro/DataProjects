@@ -1,34 +1,20 @@
 from sys import exit
-from Players.player import Player
-from Enemies.enemies import Snail, Fly
-from DisplaySurface.environment import Environment
-from Functions.gameFunctions import GameFunctions as gf
 import pygame
+import Functions.gameFunctions as gf
 
 pygame.init()
 
 # Initialize screen and dimensions (This is the main surface, a display surface, there can be only one of it)
-screen = pygame.display.set_mode((800, 400))
 
 # Set name of the window
 pygame.display.set_caption('Simple Platform Game')
 clock = pygame.time.Clock()
 
-## Setting classes of the game
-environment = Environment(screen=screen)
-player = Player(screen=screen, xspeed=3, yspeed=0) 
-snail = Snail(screen=screen, speed=2)
-fly = Fly(speed=5)
-
 # Main loop to run game
 while True:
-    for event in pygame.event.get():
-        if event.type== pygame.QUIT:
-            pygame.quit()
-            exit()
+
+    ## Update check events and update screen to not receive arguments and to include player.update and snail.update        
     gf.check_events()
-    gf.update_screen(player=player, environment=environment, enemies=snail)
-    player.update()
-    snail.update()
+    gf.update_screen()
 
     clock.tick(60)

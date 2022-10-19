@@ -1,42 +1,39 @@
 import pygame
 from Players.player import Player
 from Enemies.enemies import Snail, Fly
+from DisplaySurface.environment import Environment
+from Functions.settings import GameSettings
 
-class GameFunctions():
+gs = GameSettings()
+snail = Snail()
+player = Player()
+environment = Environment()
 
-    def __init__(self) -> None:
-        self.player = Player()
-        self.snail = Snail()
+def check_events():
 
-    def check_events(self):
-
-        """This function will check for the events that happen on the keyboard or mouse"""
-        # Watch for keyboard and mouse events.
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                exit()
-        
-            elif event.type == pygame.KEYDOWN:
-                self.check_keydown_events(event)
-
-            if self.player.rect.colliderect(self.snail.rect):
-                pygame.quit()
-                exit()           
-
-    def check_keydown_events(self, event: pygame.event):
-        """This function will check for when a key is pressed"""
-        
-        if event.type == pygame.KEYDOWN:
+    """This function will check for the events that happen on the keyboard or mouse"""
+    # Watch for keyboard and mouse events.
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+    
+        elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                self.player.yspeed=-20
+                player.yspeed=-20
 
-    def update_screen(player, environment, enemies):
-        """Update images on the screen and flip to the new screen."""
+        if player.rect.colliderect(snail):
+            pygame.quit()
+            exit()
 
-        environment.blitme()
-        player.blitme() ## Redraws the ship, on it's new position\
-        enemies.blitme()
+def update_screen():
+    """Update images on the screen and flip to the new screen."""
 
-        # Make the most recently draw screen visible
-        pygame.display.flip()
+    environment.blitme()
+    player.blitme() ## Redraws the ship, on it's new position\
+    snail.blitme()
+
+    player.update()
+    snail.update()
+    # Make the most recently draw screen visible
+    pygame.display.flip()
