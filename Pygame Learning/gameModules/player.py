@@ -21,26 +21,27 @@ class Player():
         self.yspeed = gs.player_yspeed
 
         # Setting player surface and rectangle
-        self.player_surface = pygame.image.load(self.current_path + "art/graphics/Player/player_walk_1.png").convert_alpha()
-        self.rect = self.player_surface.get_rect() # Rectangles
+        self.player_surface = pygame.image.load(self.current_path + "/art/graphics/Player/player_walk_1.png").convert_alpha()
+        self.player_rect = self.player_surface.get_rect() # Rectangles
 
         # Saving initial values
         self.initial_x = self.environment.sky_rect.left + self.player_surface.get_width()
         self.initial_y = self.environment.sky_surface.get_height()
 
         # Setting initial position of player
-        self.rect.centerx =  self.initial_x
-        self.rect.bottom = self.initial_y
+        self.player_rect.centerx =  self.initial_x
+        self.player_rect.bottom = self.initial_y
 
     def update(self):
         
         # This is going to imitate gravity
         self.yspeed += 1
-        self.rect.y += self.yspeed
+        self.player_rect.y += self.yspeed
 
-        if self.rect.bottom >= self.initial_y: # This will act like a floor
-            self.rect.bottom = self.initial_y
+        if self.player_rect.bottom >= self.initial_y: # This will act like a floor
+            self.player_rect.bottom = self.initial_y
             
     def blitme(self):
         
-        self.screen.blit(self.player_surface, self.rect)
+        self.screen.blit(self.player_surface, self.player_rect)
+        pygame.draw.rect(surface=self.screen, color='blue', rect=self.player_rect)
