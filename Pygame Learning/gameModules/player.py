@@ -29,7 +29,7 @@ class Player():
         self.initial_y = self.environment.sky_surface.get_height()
 
         # Setting initial position of player
-        self.player_rect.centerx =  self.initial_x
+        self.player_rect.centerx =  self.initial_x+500
         self.player_rect.bottom = self.initial_y
 
     def update(self):
@@ -44,4 +44,3 @@ class Player():
     def blitme(self):
         
         self.screen.blit(self.player_surface, self.player_rect)
-        pygame.draw.rect(surface=self.screen, color='blue', rect=self.player_rect)

@@ -45,7 +45,6 @@ class Snail():
         # Blit is used to put one surface into another surface
         self.screen.blit(self.snail_surface,self.snail_rect)
         self.screen.blit(self.environment.score_surface, (self.screen.get_rect().midtop))
-        pygame.draw.rect(surface=self.screen, color='blue', rect=self.snail_rect)
 
 class Fly():
     """This class represents the fly in the screen"""
