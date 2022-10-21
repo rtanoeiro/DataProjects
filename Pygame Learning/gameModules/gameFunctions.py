@@ -49,7 +49,12 @@ class GameFunctions():
 
     def game_over(self):
         
+        snail.score = 0
+        snail.text = "Score: " + str(snail.score)
+        snail.score_surface = snail.score_font.render(snail.text, False, 'Red')
+        snail.score_rect = snail.score_surface.get_rect()
         self.game_over_screen_surface.fill('Black')
+
         gs.screen.blit(self.game_over_screen_surface, (0,0))
         gs.screen.blit(self.game_over_text_surface, (150,150))
         gs.screen.blit(self.continue_surface, (50,250))
@@ -59,11 +64,9 @@ class GameFunctions():
             if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 self.game_state = True
-                snail.snail_rect.right = -1
-                print(event)
-                #sleep(2)
+                snail.snail_rect.right = gs.screen.get_width() - 50
 
         gs.clock.tick(60)
         pygame.display.update()
@@ -75,9 +78,11 @@ class GameFunctions():
         player.blitme() # Redraws the ship, on it's new position
         snail.blitme()
 
-        player.update()
-        snail.update()
-
         gs.clock.tick(60)
         # Make the most recently draw screen visible
         pygame.display.flip()
+
+    def update_characters(self):
+        
+        player.update()
+        snail.update()

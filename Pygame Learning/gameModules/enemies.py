@@ -16,9 +16,15 @@ class Snail():
         ## Getting screen to place player on it
         self.screen = gs.screen
         self.screen_rect = self.screen.get_rect()
-
+        
         ## Setting speed of player
         self.speed = gs.snail_xspeed
+
+        self.score = 0
+        self.score_font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
+        self.text = "Score: " + str(self.score)
+        self.score_surface = self.score_font.render(self.text, False, 'Red')
+        self.score_rect = self.score_surface.get_rect()
 
         ## Setting snail surface and rectangle
         self.snail_surface = pygame.image.load(self.current_path + "/art/graphics/snail/snail1.png").convert_alpha() # Surface
@@ -36,15 +42,16 @@ class Snail():
                 
         if self.snail_rect.right < 0:
             self.snail_rect.x = self.initial_position
-            self.environment.score += 1
-            text = "Score: {}".format(str(self.environment.score))
-            self.environment.score_surface = self.environment.test_font.render(text, False, 'Red')
+            self.score += 1
+            self.text = "Score: " + str(self.score)
+            self.score_surface = self.score_font.render(self.text, False, 'Red')
+            self.score_rect = self.score_surface.get_rect()
 
     def blitme(self):
         
         # Blit is used to put one surface into another surface
         self.screen.blit(self.snail_surface,self.snail_rect)
-        self.screen.blit(self.environment.score_surface, (self.screen.get_rect().midtop))
+        self.screen.blit(self.score_surface, (self.screen.get_rect().midtop))
 
 class Fly():
     """This class represents the fly in the screen"""

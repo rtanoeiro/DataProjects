@@ -29,12 +29,12 @@ class Player():
         self.initial_y = self.environment.sky_surface.get_height()
 
         # Setting initial position of player
-        self.player_rect.centerx =  self.initial_x+500
+        self.player_rect.centerx =  self.initial_x
         self.player_rect.bottom = self.initial_y
 
     def update(self):
         
-        # This is going to imitate gravity
+        # This is going to imitate gravi ty
         self.yspeed += 1
         self.player_rect.y += self.yspeed
 

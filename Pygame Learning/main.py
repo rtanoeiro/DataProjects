@@ -14,5 +14,6 @@ while True:
     ## Update check events and update screen to not receive arguments and to include player.update and snail.update        
         gf.check_events()
         gf.update_screen()
+        gf.update_characters()
     else:
         gf.game_over()
