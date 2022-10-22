@@ -47,19 +47,18 @@ class Player():
         
         # This is going to imitate gravity
         self.yspeed += 1
-        self.player_rect.y += self.yspeed
 
         if self.player_rect.bottom >= self.initial_y: # This will act like a floor
             self.player_rect.bottom = self.initial_y
 
-        elif self.moving_right:
-            self.player_rect.centerx += 1
+        if self.moving_right:
+            self.player_rect.centerx += self.xspeed
 
-        elif self.moving_left:
-            self.player_rect.x -= 1
+        if self.moving_left:
+            self.player_rect.centerx -= self.xspeed
         
-        elif self.moving_up and self.player_rect.bottom == Environment().sky_rect.top:
-            self.player_rect.centery -= 20
+        if self.moving_up:
+            self.player_rect.centery -= self.yspeed
 
     def blitme(self):
         

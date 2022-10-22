@@ -15,4 +15,4 @@ while True:
         gf.check_events()
         gf.update_screen()
     else:
-        gf.game_over()
+        gf.game_over() 
