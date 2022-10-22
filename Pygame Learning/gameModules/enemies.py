@@ -18,7 +18,7 @@ class Snail():
         ## Getting screen to place player on it
         self.screen = gs.screen
         self.screen_rect = self.screen.get_rect()
-        
+
         ## Setting speed of player
         self.speed = gs.snail_xspeed
 
@@ -53,46 +53,6 @@ class Snail():
     def update(self):
         
         self.snail_rect.x -= self.speed
-
-        if self.snail_rect.colliderect(player.player_rect):
-            gs.game_state=False
-            print("Game Over!")
-            self.game_over()
-
-        # Moving snail back to right of the screen and updating player score
-        if self.snail_rect.right < 0:
-            self.snail_rect.x = self.initial_position
-            player.score += 1
-            print("Current Score: ", player.score)
-            player.text = "Score: " + str(player.score)
-            player.score_surface = player.score_font.render(player.text, False, 'Red')
-            player.score_rect = player.score_surface.get_rect()
-
-    def game_over(self):
-        
-        gs.clock.tick(60)
-        # Update Player Score
-        player.score = 0
-        print("Game Over Score: ", player.score)
-        player.text = "Score: " + str(player.score)
-        player.score_surface = player.score_font.render(player.text, False, 'Red')
-        player.score_rect = player.score_surface.get_rect()
-
-        self.game_over_screen_surface.fill('Black')
-        gs.screen.blit(self.game_over_screen_surface, (0,0))
-        gs.screen.blit(self.game_over_text_surface, (150,150))
-        gs.screen.blit(self.continue_surface, (50,250))
-
-        for event in pygame.event.get():
-        
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                exit()
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                self.game_state = True
-                self.snail_rect.right = gs.screen.get_width() + 50
-
-        pygame.display.update()
 
     def blitme(self):
         

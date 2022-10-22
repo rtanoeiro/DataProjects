@@ -45,7 +45,7 @@ class Player():
 
     def update(self):
         
-        # This is going to imitate gravi ty
+        # This is going to imitate gravity
         self.yspeed += 1
         self.player_rect.y += self.yspeed
 
@@ -58,7 +58,7 @@ class Player():
         elif self.moving_left:
             self.player_rect.x -= 1
         
-        elif self.moving_up and self.player_rect.bottom:
+        elif self.moving_up and self.player_rect.bottom == Environment().sky_rect.top:
             self.player_rect.centery -= 20
 
     def blitme(self):
