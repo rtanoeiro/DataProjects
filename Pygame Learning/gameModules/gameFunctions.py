@@ -47,17 +47,20 @@ class GameFunctions():
             elif event.type == pygame.KEYUP:
                 self.check_keyup_events(event)
 
-        # Moving snail back to right of the screen and updating player score
+        # Moving snail back to right of the screen and updating player score surface to blit it
         if snail.snail_rect.right < 0:
             snail.snail_rect.x = snail.initial_position
             player.score += 1
-            player.text = "Score: " + str(player.score)
-            player.score_surface = player.score_font.render(player.text, False, 'Red')
+            player.score_text = "Score: " + str(player.score)
+            player.score_surface = player.score_font.render(player.score_text, False, 'Red')
             player.score_rect = player.score_surface.get_rect()
 
-            if player.score >= player.high_score:
-                player.high_score = player.score
-
+        ## Keeping track of higher score and updating player higher score surface to blit it
+        if player.score >= player.high_score:
+            player.high_score = player.score
+            player.high_score_text = "Higher Score: " + str(player.high_score)
+            player.high_score_surface = player.score_font.render(player.high_score_text, False, 'Red')
+            player.high_score_rect = player.score_surface.get_rect()
     def check_keydown_events(self, event):
         """This function will check for when a key is pressed"""
     

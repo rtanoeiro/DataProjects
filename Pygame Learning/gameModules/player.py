@@ -40,9 +40,13 @@ class Player():
         self.score = 0
         self.high_score = 0
         self.score_font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
-        self.text = "Score: " + str(self.score)
-        self.score_surface = self.score_font.render(self.text, False, 'Red')
+        self.score_text = "Score: " + str(self.score)
+        self.score_surface = self.score_font.render(self.score_text, False, 'Red')
         self.score_rect = self.score_surface.get_rect()
+
+        self.high_score_text = "Higher Score: " + str(self.high_score) 
+        self.high_score_surface = self.score_font.render(self.high_score_text, False, 'Red')
+        self.high_score_rect = self.high_score_surface.get_rect()
 
     def update(self):
         
@@ -63,4 +67,5 @@ class Player():
     def blitme(self):
         
         self.screen.blit(self.player_surface, self.player_rect)
-        self.screen.blit(self.score_surface, (self.screen.get_rect().midtop))
+        self.screen.blit(self.score_surface, (550,5))
+        self.screen.blit(self.high_score_surface, (100, 5))
