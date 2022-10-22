@@ -4,6 +4,7 @@ from gameModules.environment import Environment
 from gameModules.settings import GameSettings
 
 gs = GameSettings()
+pygame.font.init()
 
 class Player():
     """This class represents the player"""
@@ -20,6 +21,10 @@ class Player():
         self.xspeed = gs.player_xspeed
         self.yspeed = gs.player_yspeed
 
+        self.moving_right = False
+        self.moving_left = False
+        self.moving_up = False
+
         # Setting player surface and rectangle
         self.player_surface = pygame.image.load(self.current_path + "/art/graphics/Player/player_walk_1.png").convert_alpha()
         self.player_rect = self.player_surface.get_rect() # Rectangles
@@ -32,6 +37,12 @@ class Player():
         self.player_rect.centerx =  self.initial_x
         self.player_rect.bottom = self.initial_y
 
+        self.score = 0
+        self.score_font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
+        self.text = "Score: " + str(self.score)
+        self.score_surface = self.score_font.render(self.text, False, 'Red')
+        self.score_rect = self.score_surface.get_rect()
+
     def update(self):
         
         # This is going to imitate gravi ty
@@ -40,7 +51,17 @@ class Player():
 
         if self.player_rect.bottom >= self.initial_y: # This will act like a floor
             self.player_rect.bottom = self.initial_y
-            
+
+        elif self.moving_right:
+            self.player_rect.centerx += 1
+
+        elif self.moving_left:
+            self.player_rect.x -= 1
+        
+        elif self.moving_up and self.player_rect.bottom:
+            self.player_rect.centery -= 20
+
     def blitme(self):
         
         self.screen.blit(self.player_surface, self.player_rect)
+        self.screen.blit(self.score_surface, (self.screen.get_rect().midtop))

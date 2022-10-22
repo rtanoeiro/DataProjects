@@ -8,7 +8,7 @@ class GameSettings():
     def __init__(self):
 
         self.current_path = os.getcwd()
-        self.player_xspeed = 3
+        self.player_xspeed = 5
         self.player_yspeed = 0
         self.snail_xspeed = 6
         self.fly_xspeed = 5
