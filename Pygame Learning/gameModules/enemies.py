@@ -2,9 +2,7 @@ import pygame
 import os
 from gameModules.environment import Environment
 from gameModules.settings import GameSettings
-from gameModules.player import Player
 
-player = Player()
 gs = GameSettings()
 
 class Snail():
@@ -31,24 +29,6 @@ class Snail():
         self.snail_rect.centery = self.environment.sky_rect.bottom - self.snail_surface.get_height()/2 ## Self.rect.bottom/2 will adjust the image up just a bit, so it's entirely in the screen
 
         self.initial_position = self.snail_rect.centerx
-
-        self.test_font150 = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 150)
-        self.test_font75 = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 75)
-
-        self.game_over_text_surface = self.test_font150.render('Game Over!', False, 'White')
-        self.game_over_text_rect = self.game_over_text_surface.get_rect()
-
-        self.continue_surface = self.test_font75.render('Press Enter to Continue Playing!', False, 'White')
-        self.continue_surface_rect = self.continue_surface.get_rect()
-
-        self.game_over_screen_surface = gs.screen
-        self.game_over_screen_rect = gs.screen.get_rect()
-
-        self.score = 0
-        self.score_font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
-        self.text = "Score: " + str(self.score)
-        self.score_surface = self.score_font.render(self.text, False, 'Red')
-        self.score_rect = self.score_surface.get_rect()
 
     def update(self):
         

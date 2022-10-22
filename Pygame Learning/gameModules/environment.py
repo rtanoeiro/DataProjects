@@ -3,6 +3,7 @@ import os
 from gameModules.settings import GameSettings
 
 gs = GameSettings()
+pygame.font.init()
 
 class Environment():
     """This class represents the Display Surface"""

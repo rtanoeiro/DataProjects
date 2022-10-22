@@ -38,6 +38,7 @@ class Player():
         self.player_rect.bottom = self.initial_y
 
         self.score = 0
+        self.high_score = 0
         self.score_font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
         self.text = "Score: " + str(self.score)
         self.score_surface = self.score_font.render(self.text, False, 'Red')
@@ -47,8 +48,10 @@ class Player():
         
         # This is going to imitate gravity
         self.yspeed += 1
-
-        if self.player_rect.bottom >= self.initial_y: # This will act like a floor
+        self.player_rect.centery += self.yspeed
+        
+        # This will act like a floor
+        if self.player_rect.bottom >= self.initial_y:
             self.player_rect.bottom = self.initial_y
 
         if self.moving_right:
@@ -56,9 +59,6 @@ class Player():
 
         if self.moving_left:
             self.player_rect.centerx -= self.xspeed
-        
-        if self.moving_up:
-            self.player_rect.centery -= self.yspeed
 
     def blitme(self):
         
