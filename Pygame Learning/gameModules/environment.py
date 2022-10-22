@@ -12,10 +12,10 @@ class Environment():
         # Creating font for score
         self.current_path = os.getcwd()
         self.screen = gs.screen
-        self.test_font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
+        self.font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
 
         self.score = 0
-        self.score_surface = self.test_font.render('Score: ', False, 'Red')
+        self.score_surface = self.font.render('Score: ', False, 'Red')
         self.score_rect = self.score_surface.get_rect()
 
         # Creating surfaces (Sky and ground) and setting colors (There could be many surfaces of this instance)

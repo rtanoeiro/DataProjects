@@ -28,6 +28,13 @@ class Player():
         # Setting player surface and rectangle
         self.player_surface = pygame.image.load(self.current_path + "/art/graphics/Player/player_walk_1.png").convert_alpha()
         self.player_rect = self.player_surface.get_rect() # Rectangles
+        
+        self.font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
+
+        # Setting player stand surface and rectangle
+        self.player_stand_surface = pygame.image.load(self.current_path + "/art/graphics/Player/player_stand.png").convert_alpha()
+        self.player_stand_rect = self.player_stand_surface.get_rect() # Rectangles
+        self.player_stand_surface_scaled = pygame.transform.scale2x(self.player_stand_surface)
 
         # Saving initial values
         self.initial_x = self.environment.sky_rect.left + self.player_surface.get_width()
@@ -39,13 +46,12 @@ class Player():
 
         self.score = 0
         self.high_score = 0
-        self.score_font = pygame.font.Font(self.current_path + "/art/font/Pixeltype.ttf", 50)
         self.score_text = "Score: " + str(self.score)
-        self.score_surface = self.score_font.render(self.score_text, False, 'Red')
+        self.score_surface = self.font.render(self.score_text, False, 'Red')
         self.score_rect = self.score_surface.get_rect()
 
         self.high_score_text = "Higher Score: " + str(self.high_score) 
-        self.high_score_surface = self.score_font.render(self.high_score_text, False, 'Red')
+        self.high_score_surface = self.font.render(self.high_score_text, False, 'Red')
         self.high_score_rect = self.high_score_surface.get_rect()
 
     def update(self):

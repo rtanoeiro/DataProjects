@@ -21,7 +21,7 @@ class GameFunctions():
         self.game_over_text_surface = self.test_font150.render('Game Over!', False, 'White')
         self.game_over_text_rect = self.game_over_text_surface.get_rect()
 
-        self.continue_surface = self.test_font75.render('Press Enter to Continue Playing!', False, 'White')
+        self.continue_surface = self.test_font75.render('Press Space to Continue Playing!', False, 'White')
         self.continue_surface_rect = self.continue_surface.get_rect()
 
         self.game_over_screen_surface = gs.screen
@@ -52,15 +52,16 @@ class GameFunctions():
             snail.snail_rect.x = snail.initial_position
             player.score += 1
             player.score_text = "Score: " + str(player.score)
-            player.score_surface = player.score_font.render(player.score_text, False, 'Red')
+            player.score_surface = player.font.render(player.score_text, False, 'Red')
             player.score_rect = player.score_surface.get_rect()
 
         ## Keeping track of higher score and updating player higher score surface to blit it
         if player.score >= player.high_score:
             player.high_score = player.score
             player.high_score_text = "Higher Score: " + str(player.high_score)
-            player.high_score_surface = player.score_font.render(player.high_score_text, False, 'Red')
+            player.high_score_surface = player.font.render(player.high_score_text, False, 'Red')
             player.high_score_rect = player.score_surface.get_rect()
+
     def check_keydown_events(self, event):
         """This function will check for when a key is pressed"""
     
@@ -91,14 +92,15 @@ class GameFunctions():
         player.score = 0
         player.moving_left = False
         player.moving_right  = False
-        player.text = "Score: " + str(player.score)
-        player.score_surface = player.score_font.render(player.text, False, 'Red')
+        player.score_text = "Score: " + str(player.score)
+        player.score_surface = player.font.render(player.score_text, False, 'Red')
         player.score_rect = player.score_surface.get_rect()
 
         self.game_over_screen_surface.fill('Black')
         gs.screen.blit(self.game_over_screen_surface, (0,0))
-        gs.screen.blit(self.game_over_text_surface, (150,150))
-        gs.screen.blit(self.continue_surface, (50,250))
+        gs.screen.blit(self.game_over_text_surface, (150,5))
+        gs.screen.blit(player.player_stand_surface_scaled, (325,125))
+        gs.screen.blit(self.continue_surface, (50,350))
 
         for event in pygame.event.get():
         

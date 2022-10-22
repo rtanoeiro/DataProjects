@@ -14,4 +14,4 @@ class GameSettings():
         self.screen_height = 400
         self.screen = pygame.display.set_mode((800, 400))
         self.clock = pygame.time.Clock()
-        self.game_state = True
+        self.game_state = False
